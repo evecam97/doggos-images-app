@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { getGifs } from "../helpers/getGifs";
 
-
+// function to add dog picture
 export const AddImage = () => {
 
     const [gif, setGif] = useState("");

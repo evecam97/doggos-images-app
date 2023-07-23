@@ -1,4 +1,5 @@
 
+//Create the connection with the api and get a dog picture
 export const getGifs = async( ) => {
 
     const urlApi = "https://dog.ceo/api/breeds/image/random"

@@ -5,6 +5,8 @@ import { getGifs } from "../helpers/getGifs";
 export const AddImage = () => {
 
     const [gif, setGif] = useState("");
+    const [counter, setCounter] = useState(0);
+    const handleAdd = () => setCounter(counter + 1)
 
     const getImages = async () => {
         const newGif = await getGifs();
@@ -15,19 +17,22 @@ export const AddImage = () => {
     const addButton = async () => {
         const gifValue = await getImages();
         setGif(gifValue);
-        console.log("apretando boton: " + gifValue);
+        handleAdd()
     }
 
     return (
         <>
             <button onClick={addButton}>Touch me!</button>
-
             <div className="card-grid">
                 {gif.code === 200 ? (
-                    <img src={gif.message} alt="" />
+                    <div>
+                        <img src={gif.message} alt="" />
+                        <p>Doggo: {counter}</p>
+                    </div>
                 ) : (
                     <p>{gif.message}</p>
                 )}
+                
             </div>
         </>
     );
